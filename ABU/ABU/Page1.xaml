@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ABU.Page1">
+    <StackLayout>
+            <Label Text="Arbitrary Units Calculator"
+                VerticalOptions="Start" 
+                HorizontalOptions="Center" />
+            <Label Text="Settings"
+                VerticalOptions="Start"
+                HorizontalOptions="Center"/>
+            <StackLayout Grid.Row="1" Orientation="Horizontal">
+                <Label Text="Scale (0-To)"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   FontSize="Small"/>
+                <Entry x:Name="MPer" 
+                   VerticalOptions="Center" 
+                   HorizontalOptions="FillAndExpand" 
+                   Keyboard="Numeric"/>
+        </StackLayout>
+        <StackLayout Grid.Row="1" Orientation="Horizontal">
+            <Label Text="Days per cycle"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   FontSize="Small"/>
+            <Entry x:Name="DaysC" 
+                   VerticalOptions="Center" 
+                   HorizontalOptions="FillAndExpand" 
+                   Keyboard="Numeric"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
