@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace ABU
@@ -13,6 +9,14 @@ namespace ABU
         {
             InitializeComponent();
             BSettings.Pressed += BSettings_Pressed;
+            DateTime Today = DateTime.Now.ToLocalTime();
+            DateTime dateOnly = Today.Date;
+            CurDate.Text = dateOnly.ToString("d");
+            var picker = DaysList;
+            for (int i = 0; i < 7;i++)
+            {
+                picker.Items.Add(dateOnly.AddDays(-i).ToString("d"));
+            }
         }
 
         private void BSettings_Pressed(object sender, EventArgs e)

@@ -7,7 +7,32 @@
         <!-- Place new controls here -->
         <Label Text="Arbitrary Unit Calculator" 
            HorizontalOptions="Center"
-           VerticalOptions="StartAndExpand" />
+           VerticalOptions="Start" />
+
+        <StackLayout Grid.Row="1" Orientation="Horizontal" Margin="0,30,0,0">
+            <Label Text="Current Date:" VerticalOptions="Start" HorizontalOptions="Start"/>
+            <Label Text="" x:Name="CurDate" VerticalOptions="Center" HorizontalOptions="Fill"/>
+
+        </StackLayout>
+        <StackLayout Grid.Row="1" Orientation="Horizontal" Margin="0,10,0,0">
+            <Label Text="Monthly:" VerticalOptions="Start" HorizontalOptions="Start"/>
+            <Label Text="" x:Name="Month" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+        
+        <StackLayout Grid.Row="1" Orientation="Horizontal" Margin="0,10,0,0">
+            <Label Text="Weekly:" VerticalOptions="Start" HorizontalOptions="Start"/>
+            <Label Text="" x:Name="Week" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+
+        <StackLayout Grid.Row="1" Orientation="Horizontal" Margin="0,10,0,0">
+            <Label Text="Cycle:" VerticalOptions="Start" HorizontalOptions="Start"/>
+            <Label Text="" x:Name="Cycle" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+
+        <StackLayout Grid.Row="1" Orientation="Horizontal" Margin="0,30,0,0">
+            <Label Text="Training Date" VerticalOptions="Start" HorizontalOptions="Start"/>
+            <Picker x:Name="DaysList" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
 
         <Button Text="Settings" 
                 x:Name="BSettings"
