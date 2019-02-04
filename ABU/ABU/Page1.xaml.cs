@@ -11,12 +11,10 @@ namespace ABU
 		{
             InitializeComponent ();
             DaysC.Completed += DaysC_Completed;
-            try
+            if (Application.Current.Properties.ContainsKey("cycle"))
             {
                 DaysC.Text = Application.Current.Properties["cycle"].ToString();
             }
-            catch (Exception e){ }
-
         }
 
         private void DaysC_Completed(object sender, EventArgs e)
