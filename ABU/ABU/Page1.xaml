@@ -6,19 +6,9 @@
             <Label Text="Arbitrary Units Calculator"
                 VerticalOptions="Start" 
                 HorizontalOptions="Center" />
-            <Label Text="Settings"
+        <Label Text="Settings"
                 VerticalOptions="Start"
                 HorizontalOptions="Center"/>
-            <StackLayout Grid.Row="1" Orientation="Horizontal">
-                <Label Text="Scale (0-To)"
-                   VerticalOptions="Center"
-                   HorizontalOptions="Start"
-                   FontSize="Small"/>
-                <Entry x:Name="MPer" 
-                   VerticalOptions="Center" 
-                   HorizontalOptions="FillAndExpand" 
-                   Keyboard="Numeric"/>
-        </StackLayout>
         <StackLayout Grid.Row="1" Orientation="Horizontal">
             <Label Text="Days per cycle"
                    VerticalOptions="Center"
