@@ -14,15 +14,13 @@ namespace ABU
             BAdd.Pressed += BAdd_Pressed;
             BClear.Pressed += BClear_Pressed;
             DaysList.SelectedIndexChanged += DaysList_SelectedIndexChanged;
-            DateTime Today = DateTime.Now.ToLocalTime();
-            DateTime dateOnly = Today.Date;
-            CurDate.Text = dateOnly.ToString("d");
             if (!Application.Current.Properties.ContainsKey("day"))
             {
                 Application.Current.Properties["day"] = 0;
+                Application.Current.Properties["IniDate"] = DateTime.Now.Date.ToString();
                 for (int j = 0; j < 31; j++)
                 {
-                    Application.Current.Properties["day" + j] = "";
+                    Application.Current.Properties[j.ToString()] = "";
                 }
 
             }
@@ -31,11 +29,28 @@ namespace ABU
                 dCycle = Convert.ToInt32(Application.Current.Properties["cycle"].ToString());
                 numCy.Text = "Cycle (Last " + dCycle.ToString() + " Days):";
             }
-            var picker = DaysList;
-            for (int i = 0; i < dCycle;i++)
+            var db = (Convert.ToDateTime(Application.Current.Properties["IniDate"].ToString()));
+            if((db - DateTime.Now.Date).TotalDays > 1)
             {
-                picker.Items.Add(dateOnly.AddDays(-i).ToString("d"));
+                var num = Convert.ToInt32(Application.Current.Properties["day"]);
+                if (num < 31)
+                {
+                    Application.Current.Properties["day"] = num + 1;
+
+                }
+                else
+                {
+                    Application.Current.Properties["day"] = 0;
+                }
+                Application.Current.Properties["IniDate"]= DateTime.Now.Date.ToString();
             }
+            var picker = DaysList;
+            for (int i = 0; i < 31;i++)
+            {
+                picker.Items.Add(i.ToString());
+            }
+
+            CurDate.Text = Application.Current.Properties["day"].ToString();
         }
 
         private void DaysList_SelectedIndexChanged(object sender, EventArgs e)
@@ -51,7 +66,7 @@ namespace ABU
         private void BAdd_Pressed(object sender, EventArgs e)
         {
             var j = Application.Current.Properties["day"];
-            Application.Current.Properties["day" + j] = Convert.ToInt32(Hours) * Convert.ToInt32(Unit);
+            Application.Current.Properties[j.ToString()] = Convert.ToInt32(Hours) * Convert.ToInt32(Unit);
         }
 
         private void BSettings_Pressed(object sender, EventArgs e)
