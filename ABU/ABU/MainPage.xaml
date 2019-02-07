@@ -9,7 +9,7 @@
            HorizontalOptions="Center"
            VerticalOptions="Start" />
 
-        <StackLayout Grid.Row="1" Orientation="Horizontal" Margin="0,30,0,0">
+        <StackLayout Grid.Row="1" Orientation="Horizontal" Margin="0,10,0,0">
             <Label Text="Current Date:" VerticalOptions="Start" HorizontalOptions="Start"/>
             <Label Text="" x:Name="CurDate" VerticalOptions="Center" HorizontalOptions="Fill"/>
 
@@ -28,8 +28,13 @@
             <Label Text="Cycle" x:Name="numCy" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
             <Label Text="" x:Name="Cycle" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
         </StackLayout>
+        
+        <StackLayout Grid.Row="1" Orientation="Horizontal" Margin="0,10,0,0">
+            <Label Text="Day:" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
+            <Label Text="" x:Name="Day" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
 
-        <StackLayout Grid.Row="1" Orientation="Horizontal" Margin="0,20,0,0">
+        <StackLayout Grid.Row="1" Orientation="Horizontal" Margin="0,10,0,0">
             <Label Text="Training Date" VerticalOptions="Start" HorizontalOptions="Start"/>
             <Picker x:Name="DaysList" VerticalOptions="Start" HorizontalOptions="FillAndExpand" FontSize="Micro"/>
         </StackLayout>
@@ -48,12 +53,28 @@
             <Button Text="Add" 
                 x:Name="BAdd"
                 HorizontalOptions="Start"
-                VerticalOptions="Start"/>
+                VerticalOptions="Start"
+                FontSize="Small"
+                WidthRequest="75"
+                HeightRequest="40"/>
 
             <Button Text="Settings" 
                 x:Name="BSettings"
                 HorizontalOptions="Fill"
-                VerticalOptions="Start"/>
+                VerticalOptions="Start"
+                FontSize="Small"
+                WidthRequest="90"
+                HeightRequest="40"/>
+
+            <Button
+                Text="Clear"
+                x:Name="BClear"
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill"
+                FontSize="Small"
+                WidthRequest="75"
+                HeightRequest="40"
+                />
         </StackLayout>
     </StackLayout>
 

@@ -12,6 +12,8 @@ namespace ABU
             InitializeComponent();
             BSettings.Pressed += BSettings_Pressed;
             BAdd.Pressed += BAdd_Pressed;
+            BClear.Pressed += BClear_Pressed;
+            DaysList.SelectedIndexChanged += DaysList_SelectedIndexChanged;
             DateTime Today = DateTime.Now.ToLocalTime();
             DateTime dateOnly = Today.Date;
             CurDate.Text = dateOnly.ToString("d");
@@ -36,8 +38,20 @@ namespace ABU
             }
         }
 
+        private void DaysList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Day.Text = DaysList.SelectedItem.ToString();
+        }
+
+        private void BClear_Pressed(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         private void BAdd_Pressed(object sender, EventArgs e)
         {
+            var j = Application.Current.Properties["day"];
+            Application.Current.Properties["day" + j] = Convert.ToInt32(Hours) * Convert.ToInt32(Unit);
         }
 
         private void BSettings_Pressed(object sender, EventArgs e)
