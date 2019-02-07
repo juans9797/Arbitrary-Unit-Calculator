@@ -55,7 +55,8 @@ namespace ABU
 
         private void DaysList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Day.Text = DaysList.SelectedItem.ToString();
+            var j = DaysList.SelectedItem.ToString();
+            Day.Text = Application.Current.Properties[j].ToString();
         }
 
         private void BClear_Pressed(object sender, EventArgs e)
@@ -65,8 +66,9 @@ namespace ABU
 
         private void BAdd_Pressed(object sender, EventArgs e)
         {
-            var j = Application.Current.Properties["day"];
-            Application.Current.Properties[j.ToString()] = Convert.ToInt32(Hours) * Convert.ToInt32(Unit);
+            var j = DaysList.SelectedItem.ToString();
+            Application.Current.Properties[j] = (Convert.ToInt32(Hours.Text) * Convert.ToInt32(Unit.Text));
+            Day.Text = Application.Current.Properties[j].ToString();
         }
 
         private void BSettings_Pressed(object sender, EventArgs e)
