@@ -18,7 +18,7 @@ namespace ABU
             {
                 Application.Current.Properties["day"] = 0;
                 Application.Current.Properties["IniDate"] = DateTime.Now.Date.ToString();
-                for (int j = 0; j < 31; j++)
+                for (int j = 0; j < 29; j++)
                 {
                     Application.Current.Properties[j.ToString()] = "";
                 }
@@ -30,22 +30,25 @@ namespace ABU
                 numCy.Text = "Cycle (Last " + dCycle.ToString() + " Days):";
             }
             var db = (Convert.ToDateTime(Application.Current.Properties["IniDate"].ToString()));
-            if((db - DateTime.Now.Date).TotalDays > 1)
+            var dif = (db - DateTime.Now.Date).TotalDays;
+            dif = dif * -1;
+            numCy.Text = dif.ToString();
+            if (dif > 1)
             {
                 var num = Convert.ToInt32(Application.Current.Properties["day"]);
-                if (num < 31)
+                if (num+dif < 29)
                 {
-                    Application.Current.Properties["day"] = num + 1;
+                    Application.Current.Properties["day"] = num + dif;
 
                 }
                 else
                 {
-                    Application.Current.Properties["day"] = 0;
+                    Application.Current.Properties["day"] = ((num+dif)-29);
                 }
                 Application.Current.Properties["IniDate"]= DateTime.Now.Date.ToString();
             }
             var picker = DaysList;
-            for (int i = 0; i < 31;i++)
+            for (int i = 0; i < 29;i++)
             {
                 picker.Items.Add(i.ToString());
             }
