@@ -20,7 +20,7 @@ namespace ABU
                 Application.Current.Properties["IniDate"] = DateTime.Now.Date.ToString();
                 for (int j = 0; j < 29; j++)
                 {
-                    Application.Current.Properties[j.ToString()] = "";
+                    Application.Current.Properties[j.ToString()] = 0;
                 }
 
             }
@@ -32,7 +32,6 @@ namespace ABU
             var db = (Convert.ToDateTime(Application.Current.Properties["IniDate"].ToString()));
             var dif = (db - DateTime.Now.Date).TotalDays;
             dif = dif * -1;
-            numCy.Text = dif.ToString();
             if (dif > 1)
             {
                 var num = Convert.ToInt32(Application.Current.Properties["day"]);
@@ -52,6 +51,16 @@ namespace ABU
             {
                 picker.Items.Add(i.ToString());
             }
+            var picker1 = Hours;
+            for (int i = 0; i < 13; i++)
+            {
+                picker1.Items.Add(i.ToString());
+            }
+            var picker2 = Unit;
+            for (int i = 0; i < 11; i++)
+            {
+                picker2.Items.Add(i.ToString());
+            }
 
             CurDate.Text = Application.Current.Properties["day"].ToString();
         }
@@ -70,7 +79,7 @@ namespace ABU
         private void BAdd_Pressed(object sender, EventArgs e)
         {
             var j = DaysList.SelectedItem.ToString();
-            Application.Current.Properties[j] = (Convert.ToInt32(Hours.Text) * Convert.ToInt32(Unit.Text));
+            Application.Current.Properties[j] = Convert.ToInt32(Hours.SelectedItem) * Convert.ToInt32(Unit.SelectedItem);
             Day.Text = Application.Current.Properties[j].ToString();
         }
 
