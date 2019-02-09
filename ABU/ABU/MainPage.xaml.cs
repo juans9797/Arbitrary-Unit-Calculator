@@ -73,14 +73,24 @@ namespace ABU
 
         private void BClear_Pressed(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var j = DaysList.SelectedItem.ToString();
+            Application.Current.Properties[j] = 0;
+            Day.Text = Application.Current.Properties[j].ToString();
+            DaysList.SelectedIndex = -1;
+            Hours.SelectedIndex = -1;
+            Unit.SelectedIndex = -1;
         }
 
         private void BAdd_Pressed(object sender, EventArgs e)
         {
             var j = DaysList.SelectedItem.ToString();
-            Application.Current.Properties[j] = Convert.ToInt32(Hours.SelectedItem) * Convert.ToInt32(Unit.SelectedItem);
+            var current = Convert.ToInt32(Application.Current.Properties[j]);
+            var add = Convert.ToInt32(Hours.SelectedItem) * Convert.ToInt32(Unit.SelectedItem);
+            Application.Current.Properties[j] = current + add;
             Day.Text = Application.Current.Properties[j].ToString();
+            DaysList.SelectedIndex = -1;
+            Hours.SelectedIndex = -1;
+            Unit.SelectedIndex = -1;
         }
 
         private void BSettings_Pressed(object sender, EventArgs e)
